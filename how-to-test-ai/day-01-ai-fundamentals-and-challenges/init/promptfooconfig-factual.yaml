@@ -19,7 +19,7 @@ prompts:
 # openai-gpt
 
 providers:
-  - file://Providers/anthropic-claude.yaml
+  - file://Providers/all-providers.yaml
 
 tests:
   - description: "Testing Factual Knowledge"
