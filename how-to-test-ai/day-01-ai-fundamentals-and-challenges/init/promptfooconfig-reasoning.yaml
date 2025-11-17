@@ -1,0 +1,23 @@
+description: "Testing AI Responses by reasoning capabilities"
+
+# change the .txt file to one of these file names to run a specific prompt
+# compliance
+# context_limit
+# bias_fairness
+# hallucination
+# performance_consistency
+# security
+# values_alignment
+
+prompts:
+  - file://File-based-prompts/reasoning/security.txt
+
+providers:
+  - file://Providers/all-providers.yaml
+
+tests:
+  - description: "Testing Reasoning Capabilities"
+    prompt: ${prompts[0].raw}
+    assert:
+      - type: llm-rubric
+        value: "Response must demonstrate logical reasoning, step-by-step thinking, and sound conclusions"

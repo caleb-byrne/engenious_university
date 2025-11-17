@@ -1,0 +1,30 @@
+description: "Testing AI Responses by factual knowledge"
+
+# change the .txt file to one of these file names to run a specific prompt
+# compliance
+# context_limit
+# bias_fairness
+# hallucination
+# performance_consistency
+# security
+# values_alignment
+
+prompts:
+  - file://File-based-prompts/factual/compliance.txt
+
+# List of providers to test against
+# all-providers
+# anthropic-claude
+# local-lmstudio
+# openai-gpt
+
+providers:
+  - file://Providers/anthropic-claude.yaml
+
+tests:
+  - description: "Testing Factual Knowledge"
+    prompt: ${prompts[0].raw}
+    assert:
+      - type: llm-rubric
+        value: "Response must contain specific, verifiable facts from credible sources"
+

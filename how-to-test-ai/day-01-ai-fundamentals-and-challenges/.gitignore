@@ -1,6 +1,6 @@
 # Challenge files
 challenge-*.md
 
-# Root README
-README.md
+# Root README (only at the root level, not in subdirectories)
+/README.md
 
