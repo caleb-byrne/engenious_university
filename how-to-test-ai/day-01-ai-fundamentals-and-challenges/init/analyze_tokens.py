@@ -79,9 +79,9 @@ def format_provider_name(provider_id: str) -> str:
     return name
 
 
-def calculate_percentages(provider_data: Dict[str, Dict]) -> Dict[str, float]:
+def calculate_token_percentages(provider_data: Dict[str, Dict]) -> Dict[str, float]:
     """
-    Calculate percentage savings compared to the most expensive provider.
+    Calculate percentage savings compared to the most token-intensive provider.
     
     Returns a dictionary mapping provider IDs to their percentage savings.
     """
@@ -99,7 +99,7 @@ def calculate_percentages(provider_data: Dict[str, Dict]) -> Dict[str, float]:
     for provider_id, data in provider_data.items():
         tokens = data['total_tokens']
         if tokens == max_tokens:
-            percentages[provider_id] = 0.0  # This is the most expensive
+            percentages[provider_id] = 0.0  # This is the most token-intensive
         else:
             # Calculate percentage cheaper (savings)
             savings = ((max_tokens - tokens) / max_tokens) * 100
@@ -108,7 +108,43 @@ def calculate_percentages(provider_data: Dict[str, Dict]) -> Dict[str, float]:
     return percentages
 
 
-def print_comparison_table(provider_data: Dict[str, Dict], percentages: Dict[str, float]):
+def calculate_latency_percentages(provider_data: Dict[str, Dict]) -> Dict[str, float]:
+    """
+    Calculate percentage savings for latency compared to the slowest provider.
+    
+    Returns a dictionary mapping provider IDs to their latency percentage savings.
+    """
+    if not provider_data:
+        return {}
+    
+    # Calculate average latency per provider
+    avg_latencies = {}
+    for provider_id, data in provider_data.items():
+        if data['test_count'] > 0:
+            avg_latencies[provider_id] = data['total_latency_ms'] / data['test_count']
+        else:
+            avg_latencies[provider_id] = 0
+    
+    # Find the provider with the highest average latency
+    if not avg_latencies or max(avg_latencies.values()) == 0:
+        return {}
+    
+    max_latency_provider = max(avg_latencies.items(), key=lambda x: x[1])
+    max_latency = max_latency_provider[1]
+    
+    percentages = {}
+    for provider_id, avg_latency in avg_latencies.items():
+        if avg_latency == max_latency:
+            percentages[provider_id] = 0.0  # This is the slowest
+        else:
+            # Calculate percentage faster (savings)
+            savings = ((max_latency - avg_latency) / max_latency) * 100
+            percentages[provider_id] = savings
+    
+    return percentages
+
+
+def print_comparison_table(provider_data: Dict[str, Dict], token_percentages: Dict[str, float], latency_percentages: Dict[str, float]):
     """Print a formatted comparison table."""
     if not provider_data:
         print("No provider data found in results.")
@@ -118,6 +154,16 @@ def print_comparison_table(provider_data: Dict[str, Dict], percentages: Dict[str
     max_tokens_provider = max(provider_data.items(), key=lambda x: x[1]['total_tokens'])
     max_provider_id = max_tokens_provider[0]
     
+    # Find the provider with the highest average latency
+    avg_latencies = {}
+    for provider_id, data in provider_data.items():
+        if data['test_count'] > 0:
+            avg_latencies[provider_id] = data['total_latency_ms'] / data['test_count']
+        else:
+            avg_latencies[provider_id] = 0
+    
+    max_latency_provider_id = max(avg_latencies.items(), key=lambda x: x[1])[0] if avg_latencies else None
+    
     # Sort providers by total tokens (descending)
     sorted_providers = sorted(
         provider_data.items(),
@@ -125,35 +171,52 @@ def print_comparison_table(provider_data: Dict[str, Dict], percentages: Dict[str
         reverse=True
     )
     
-    print("\n" + "=" * 100)
-    print("TOKEN USAGE COMPARISON - PROMPTFOO RESULTS")
-    print("=" * 100)
+    print("\n" + "=" * 120)
+    print("TOKEN USAGE & LATENCY COMPARISON - PROMPTFOO RESULTS")
+    print("=" * 120)
     print(f"\nMost Token-Intensive Provider: {format_provider_name(max_provider_id)}")
     print(f"  Total Tokens: {provider_data[max_provider_id]['total_tokens']:,}")
+    if max_latency_provider_id:
+        max_avg_latency = avg_latencies[max_latency_provider_id]
+        print(f"Slowest Provider: {format_provider_name(max_latency_provider_id)}")
+        print(f"  Avg Latency: {max_avg_latency:.0f} ms")
     print()
     
     # Table header
-    print(f"{'Provider':<50} {'Total Tokens':<15} {'Cost ($)':<12} {'Savings %':<12} {'Tests':<8}")
-    print("-" * 100)
+    print(f"{'Provider':<45} {'Tokens':<12} {'Cost ($)':<12} {'Token Savings':<15} {'Avg Latency':<15} {'Latency Savings':<15} {'Tests':<8}")
+    print("-" * 120)
     
     # Table rows
     for provider_id, data in sorted_providers:
         provider_name = format_provider_name(provider_id)
         total_tokens = data['total_tokens']
         cost = data['cost']
-        savings = percentages.get(provider_id, 0.0)
+        token_savings = token_percentages.get(provider_id, 0.0)
         test_count = data['test_count']
         
-        # Mark the most expensive with an indicator
-        indicator = " ⭐ (Most)" if provider_id == max_provider_id else ""
+        # Calculate average latency
+        if test_count > 0:
+            avg_latency = data['total_latency_ms'] / test_count
+        else:
+            avg_latency = 0
         
-        print(f"{provider_name:<50} {total_tokens:>14,} {cost:>11.6f} {savings:>11.2f}% {test_count:>7}{indicator}")
+        latency_savings = latency_percentages.get(provider_id, 0.0)
+        
+        # Mark indicators
+        indicators = []
+        if provider_id == max_provider_id:
+            indicators.append("⭐ (Most Tokens)")
+        if provider_id == max_latency_provider_id:
+            indicators.append("🐌 (Slowest)")
+        indicator = " " + " ".join(indicators) if indicators else ""
+        
+        print(f"{provider_name:<45} {total_tokens:>11,} {cost:>11.6f} {token_savings:>14.2f}% {avg_latency:>14.0f} ms {latency_savings:>14.2f}% {test_count:>7}{indicator}")
     
-    print("-" * 100)
+    print("-" * 120)
     
     # Summary statistics
     print("\nDETAILED BREAKDOWN:")
-    print("-" * 100)
+    print("-" * 120)
     for provider_id, data in sorted_providers:
         provider_name = format_provider_name(provider_id)
         print(f"\n{provider_name}:")
@@ -166,10 +229,20 @@ def print_comparison_table(provider_data: Dict[str, Dict], percentages: Dict[str
         if data['test_count'] > 0:
             avg_latency = data['total_latency_ms'] / data['test_count']
             print(f"  Avg Latency:          {avg_latency:.0f} ms")
+            latency_savings = latency_percentages.get(provider_id, 0.0)
+            if latency_savings > 0:
+                print(f"  Latency Savings:      {latency_savings:.2f}% faster than slowest")
+            elif latency_savings == 0 and max_latency_provider_id and provider_id == max_latency_provider_id:
+                print(f"  Latency Savings:      (Slowest provider)")
             avg_cost_per_test = data['cost'] / data['test_count']
             print(f"  Avg Cost per Test:    ${avg_cost_per_test:.6f}")
+            token_savings = token_percentages.get(provider_id, 0.0)
+            if token_savings > 0:
+                print(f"  Token Savings:        {token_savings:.2f}% fewer tokens than most intensive")
+            elif token_savings == 0 and provider_id == max_provider_id:
+                print(f"  Token Savings:        (Most token-intensive)")
     
-    print("\n" + "=" * 100)
+    print("\n" + "=" * 120)
 
 
 def main():
@@ -192,11 +265,14 @@ def main():
         print("No provider data found in results. Make sure the results file contains test results.")
         sys.exit(1)
     
-    # Calculate percentage savings
-    percentages = calculate_percentages(provider_data)
+    # Calculate percentage savings for tokens
+    token_percentages = calculate_token_percentages(provider_data)
+    
+    # Calculate percentage savings for latency
+    latency_percentages = calculate_latency_percentages(provider_data)
     
     # Print comparison table
-    print_comparison_table(provider_data, percentages)
+    print_comparison_table(provider_data, token_percentages, latency_percentages)
 
 
 if __name__ == '__main__':
