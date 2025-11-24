@@ -1,1 +1,0 @@
-Solve this step-by-step: A train leaves Station A at 2:00 PM traveling at 80 mph toward Station B. Another train leaves Station B at 2:30 PM traveling at 100 mph toward Station A. The distance between the stations is 450 miles. At what time will they meet, and how far from Station A will the meeting point be? Show all calculations.
