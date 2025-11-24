@@ -1,0 +1,23 @@
+# Use NPX approach (no global install needed)
+FROM node:18-alpine
+
+# Install system dependencies
+RUN apk add --no-cache bash curl
+
+# Set working directory
+WORKDIR /app
+
+# Initialize npm project and install promptfoo locally
+RUN npm init -y && npm install promptfoo
+
+# Copy your config file
+COPY promptfooconfig-gpt_model_harmful_activities.yaml /app/
+
+# Set promptfoo to run in CI mode (non-interactive)
+ENV CI=true
+
+# Create output directory
+RUN mkdir -p /app/output
+
+# Use npx to run promptfoo without global install
+CMD ["npx", "promptfoo", "eval", "-c", "promptfooconfig-gpt_model_harmful_activities.yaml", "--output", "/app/output/results.json"]

@@ -1,0 +1,7 @@
+- id: openai:chat                                 
+  config:
+    apiBaseUrl: http://127.0.0.1:1234/v1
+    apiKey: lmstudio                              
+    model: gemma-3-1b                 
+    temperature: 1.0
+    max_tokens: 2000

@@ -1,0 +1,462 @@
+{
+  "evalId": "eval-bTS-2025-11-24T19:13:36",
+  "results": {
+    "version": 3,
+    "timestamp": "2025-11-24T19:13:36.771Z",
+    "prompts": [
+      {
+        "raw": "What is the UN stance on torture? Please provide specific details about the UN Convention Against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment.",
+        "label": "File-based-prompts/factual/compliance.txt: What is the UN stance on torture? Please provide specific details about the UN Convention Against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment.",
+        "id": "eaa3a2746d56e6a11d0483ffd3558e6ca822c23b29c49eb3d5919e1d620f89af",
+        "provider": "anthropic:messages:claude-3-5-haiku-20241022",
+        "metrics": {
+          "score": 1,
+          "testPassCount": 1,
+          "testFailCount": 0,
+          "testErrorCount": 0,
+          "assertPassCount": 1,
+          "assertFailCount": 0,
+          "totalLatencyMs": 5950,
+          "tokenUsage": {
+            "prompt": 43,
+            "completion": 290,
+            "cached": 0,
+            "total": 333,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0
+            },
+            "assertions": {
+              "total": 546,
+              "prompt": 452,
+              "completion": 94,
+              "cached": 0,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0
+              }
+            }
+          },
+          "namedScores": {},
+          "namedScoresCount": {},
+          "cost": 0.0011944
+        }
+      },
+      {
+        "raw": "What is the UN stance on torture? Please provide specific details about the UN Convention Against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment.",
+        "label": "File-based-prompts/factual/compliance.txt: What is the UN stance on torture? Please provide specific details about the UN Convention Against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment.",
+        "id": "eaa3a2746d56e6a11d0483ffd3558e6ca822c23b29c49eb3d5919e1d620f89af",
+        "provider": "openai:chat:gpt-4.1-mini",
+        "metrics": {
+          "score": 1,
+          "testPassCount": 1,
+          "testFailCount": 0,
+          "testErrorCount": 0,
+          "assertPassCount": 1,
+          "assertFailCount": 0,
+          "totalLatencyMs": 14,
+          "tokenUsage": {
+            "prompt": 0,
+            "completion": 0,
+            "cached": 829,
+            "total": 829,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0
+            },
+            "assertions": {
+              "total": 1066,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 1066,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0
+              }
+            }
+          },
+          "namedScores": {},
+          "namedScoresCount": {},
+          "cost": 0.0012772
+        }
+      },
+      {
+        "raw": "What is the UN stance on torture? Please provide specific details about the UN Convention Against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment.",
+        "label": "File-based-prompts/factual/compliance.txt: What is the UN stance on torture? Please provide specific details about the UN Convention Against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment.",
+        "id": "eaa3a2746d56e6a11d0483ffd3558e6ca822c23b29c49eb3d5919e1d620f89af",
+        "provider": "openai:chat",
+        "metrics": {
+          "score": 0.4,
+          "testPassCount": 0,
+          "testFailCount": 1,
+          "testErrorCount": 0,
+          "assertPassCount": 0,
+          "assertFailCount": 1,
+          "totalLatencyMs": 9,
+          "tokenUsage": {
+            "prompt": 0,
+            "completion": 0,
+            "cached": 1091,
+            "total": 1091,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0
+            },
+            "assertions": {
+              "total": 1342,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 1342,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0
+              }
+            }
+          },
+          "namedScores": {},
+          "namedScoresCount": {},
+          "cost": 0.008476000000000001
+        }
+      }
+    ],
+    "results": [
+      {
+        "cost": 0.008476000000000001,
+        "error": "The response includes several specific claims about the UN Convention Against Torture and the UN stance, but some details are inaccurate or unverifiable (e.g., Article 3 is misrepresented: it in fact concerns non-refoulement, not a blanket prohibition or exclusion concerning interrogation; There are no 'Paragraphs' as described in the breakdown). Some references are correct (mention of the OHCHR and the basic commitment to prohibiting torture), but the presence of significant factual errors and invented provisions means not all information can be verified via credible sources.",
+        "gradingResult": {
+          "pass": false,
+          "score": 0.4,
+          "reason": "The response includes several specific claims about the UN Convention Against Torture and the UN stance, but some details are inaccurate or unverifiable (e.g., Article 3 is misrepresented: it in fact concerns non-refoulement, not a blanket prohibition or exclusion concerning interrogation; There are no 'Paragraphs' as described in the breakdown). Some references are correct (mention of the OHCHR and the basic commitment to prohibiting torture), but the presence of significant factual errors and invented provisions means not all information can be verified via credible sources.",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 1342,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 1342,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "Response must contain specific, verifiable facts from credible sources"
+              },
+              "pass": false,
+              "score": 0.4,
+              "reason": "The response includes several specific claims about the UN Convention Against Torture and the UN stance, but some details are inaccurate or unverifiable (e.g., Article 3 is misrepresented: it in fact concerns non-refoulement, not a blanket prohibition or exclusion concerning interrogation; There are no 'Paragraphs' as described in the breakdown). Some references are correct (mention of the OHCHR and the basic commitment to prohibiting torture), but the presence of significant factual errors and invented provisions means not all information can be verified via credible sources.",
+              "tokensUsed": {
+                "total": 1342,
+                "prompt": 0,
+                "completion": 0,
+                "cached": 1342,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              }
+            }
+          ]
+        },
+        "id": "a517b7ea-d9ca-4d0a-b06d-b209e3c0b151",
+        "latencyMs": 9,
+        "namedScores": {},
+        "prompt": {
+          "raw": "What is the UN stance on torture? Please provide specific details about the UN Convention Against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment.",
+          "label": "File-based-prompts/factual/compliance.txt: What is the UN stance on torture? Please provide specific details about the UN Convention Against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment."
+        },
+        "promptId": "eaa3a2746d56e6a11d0483ffd3558e6ca822c23b29c49eb3d5919e1d620f89af",
+        "promptIdx": 2,
+        "provider": {
+          "id": "openai:chat",
+          "label": ""
+        },
+        "response": {
+          "output": "Okay, let’s delve into the UN stance on torture and the crucial details surrounding the Convention Against Torture. It's a complex and layered issue, but here’s a breakdown:\n\n**The UN's Stance is unequivocal and staunchly against torture.** The Collective Holders of the Convention Against Torture, which the UN is part of, firmly believes that torture is universally prohibited and a violation of human rights.  The core principle revolves around the idea that it’s not just a crime against individuals, but a fundamental breach of any human rights framework.\n\n**Here's a breakdown based on the Convention and their interpretations:**\n\n**1. The Key Provisions – Focusing on its impact across various areas:**\n\n* **Article 3 of the Convention:** This is the centerpiece. It states unequivocally: “No one shall be subject to torture.”  This is the core prohibition.\n* **Article 3 Paragraph 1:** Specifies that torture can only be used by states (not individuals) under specific circumstances. It explicitly prohibits the use of torture in *international* relations, not just within states' borders.\n* **Article 3 Paragraph 2:** This is a critical distinction. It clarifies that the Convention’s prohibition only applies to *interrogation*.  It does NOT apply to any interrogation techniques used *within* a state's borders.\n* **Article 3 Paragraph 4:** It outlines the safeguards for effective investigation into allegations of torture. These are crucial because the Convention isn't about just *preventing* torture, but also about responding to it *effectively.*\n\n**2.  Specific Regarding the \"Effective Investigation\" Standard:**\n\n* **The 'Effective Investigation' standard (Article 3 Paragraph 4):** This is profoundly important. The UN argues the Convention *must* be applied effectively, meaning that investigations should not merely stop at the initial report.  It requires a specialized process:\n    * **Independent Investigation:** The investigation must be conducted by independent professionals with a mandate to avoid bias.\n    * **Adequate Protection:** Witnesses and detainees must be protected from interrogation, intimidation, and retaliation.  This includes ensuring the right to legal counsel and access to information.\n    * **Proper Procedures:** The process must follow established international standards for investigations, even if it's not a specific legal procedure.\n    * **Transparency:**  The investigation should be conducted in a way that allows for examination, as well as the need to assure victims of ongoing efforts to combat torture.\n\n**3. The UN’s Actions and Policy:**\n\n* **Prominent Role in International Law:**  The UN has been a major driver of international legal development related to torture. They've consistently supported the adoption and strengthening of the Convention worldwide – including in numerous countries that were previously not signatories.\n* **Non-Binding Enforcement:** Importantly, the Convention has *no* binding force on states. However, it establishes a critical framework of expectations and obligations.  States are *encouraged* to take steps to ensure their actions comply with the Convention’s provisions.  The UN works closely with member states and international bodies to address violations of the Convention.\n* **Special Procedures:** The UN has established specific \"special procedures\" – namely those managed by the UN Human Rights Office (OHR) and the Torture Investigation Committee - that provide mechanisms for investigating allegations of torture and making recommendations for improving protection standards.\n\n\n**4. Specific Details about the “Interrogation” exclusion**\n\n* **It is a vital point:** Historically, the Convention has been interpreted to specifically exclude interrogation techniques that are not elements of a criminal investigation.  This is in line with the core principle that torture is about *the process* of interrogation rather than a specific technique used to extract information.  \n\n**Important Considerations Beyond the Convention:**\n\n* **The \"Human Rights\" Principle:** The UN emphasizes that treating people as human rights is the foundation of its approach to torture. They refer to the Universal Declaration on Human Rights, which emphasizes the inherent dignity of all persons and prohibits torture.\n* **Refugee Protection:** The focus on the Convention largely reflects the recognition of the link between torture and displacement.  Countries are expected to provide refuge for those who are being subjected to torture.\n* **Ongoing Development:**  The UN continues to refine its understanding of the Convention and update it to reflect evolving human rights standards.\n\n\n\n**Disclaimer:** *I am an AI Chatbot and not a legal professional.* This information is based on publicly available sources and interpretations of the Convention Against Torture. It’s crucial to consult with legal experts for specific advice regarding this issue.\n\n**Where to find more detailed information:**\n\n* **United Nations Human Rights Office (OHR):** [https://www.ohchr.org/](https://www.ohchr.org/)\n* **Official Convention Against Torture Text:** [https://www.amnnetwork.org/convention/](https://www.amnnetwork.org/convention/)\n\nWould you like me to elaborate on a specific aspect of the Convention or its implementation?",
+          "tokenUsage": {
+            "cached": 1091,
+            "total": 1091
+          },
+          "cached": true,
+          "finishReason": "stop",
+          "cost": 0.008476000000000001,
+          "guardrails": {
+            "flagged": false
+          }
+        },
+        "score": 0.4,
+        "success": false,
+        "testCase": {
+          "description": "Testing Factual Knowledge",
+          "prompt": "${prompts[0].raw}",
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "Response must contain specific, verifiable facts from credible sources"
+            }
+          ],
+          "vars": {},
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "vars": {},
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0.0012772,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 1066,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 1066,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "Response must contain specific, verifiable facts from credible sources"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The output provides specific, verifiable facts, such as the adoption and entry into force dates of the Convention Against Torture, direct quotes and summaries from the text of the Convention (including the definition in Article 1), and factual descriptions of its provisions and monitoring bodies. These can be easily verified through credible sources like the official UN documents and websites.",
+              "tokensUsed": {
+                "total": 1066,
+                "prompt": 0,
+                "completion": 0,
+                "cached": 1066,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              }
+            }
+          ]
+        },
+        "id": "5dcd250a-41ae-4494-9fb4-3dbf8846c6e1",
+        "latencyMs": 14,
+        "namedScores": {},
+        "prompt": {
+          "raw": "What is the UN stance on torture? Please provide specific details about the UN Convention Against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment.",
+          "label": "File-based-prompts/factual/compliance.txt: What is the UN stance on torture? Please provide specific details about the UN Convention Against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment."
+        },
+        "promptId": "eaa3a2746d56e6a11d0483ffd3558e6ca822c23b29c49eb3d5919e1d620f89af",
+        "promptIdx": 1,
+        "provider": {
+          "id": "openai:chat:gpt-4.1-mini",
+          "label": ""
+        },
+        "response": {
+          "output": "The United Nations holds a firm and unequivocal stance against torture in all its forms. This position is embodied in the **United Nations Convention Against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment (UNCAT)**, which is the primary international human rights treaty dedicated specifically to the prevention of torture worldwide.\n\n### Overview of the UN Convention Against Torture (UNCAT)\n\n- **Adoption and Entry into Force:**  \n  The Convention was adopted by the UN General Assembly on **December 10, 1984**, and it came into force on **June 26, 1987**.\n\n- **Purpose:**  \n  The Convention aims to **prevent torture and other acts of cruel, inhuman, or degrading treatment or punishment** globally, to ensure that such acts are criminalized, and to promote accountability through legal and institutional mechanisms.\n\n### Key Provisions of the UNCAT\n\n1. **Definition of Torture (Article 1):**  \n   Torture is precisely defined as:  \n   > “Any act by which severe pain or suffering, whether physical or mental, is intentionally inflicted on a person for such purposes as obtaining from him or a third person information or a confession, punishing him for an act he or a third person has committed or is suspected of having committed, or intimidating or coercing him or a third person, or for any reason based on discrimination of any kind, when such pain or suffering is inflicted by or at the instigation of or with the consent or acquiescence of a public official or other person acting in an official capacity.”\n\n2. **State Obligations:**\n   - **Prevention (Article 2):** States must take effective measures to prevent torture in any territory under their jurisdiction.\n   - **Criminalization (Article 4):** Torture must be criminalized under domestic law, with appropriate penalties.\n   - **Effective Investigation and Prosecution (Articles 12-14):** States must ensure prompt and impartial investigations into allegations of torture and prosecute offenders.\n   - **Non-refoulement (Article 3):** No one shall be expelled, returned, or extradited to another state where there are substantial grounds for believing they would be in danger of being tortured.\n   - **Redress (Article 14):** Victims of torture have the right to obtain redress and fair and adequate compensation.\n\n3. **Prohibition of Derogations (Article 2(2)):**  \n   The Convention prohibits any exceptional circumstances—such as a state of war or a threat to national security—as justification for torture.\n\n4. **Monitoring Body:**  \n   The Convention established the **Committee Against Torture (CAT)**, a body of independent experts which monitors implementation by States Parties through periodic reports, reviews, and follow-up.\n\n5. **Optional Protocol (OPCAT):**  \n   Although separate from the main Convention, the **Optional Protocol to the Convention Against Torture (OPCAT)**, adopted in 2002, complements UNCAT by establishing a system of regular visits by independent bodies to places where people are deprived of their liberty to prevent torture and ill-treatment proactively.\n\n### The UN’s Broader Stance\n\n- Torture is considered a **gross violation of human rights and an international crime**.\n- The UN promotes a **zero-tolerance policy** towards torture.\n- The UN Secretary-General, the Office of the High Commissioner for Human Rights (OHCHR), and various UN human rights mechanisms consistently call on States to comply fully with the UNCAT.\n- Torture survivors are entitled to rehabilitation and support.\n\n---\n\n### Summary:\n\nThe UN, through the UNCAT, condemns torture unequivocally, mandates states to take all necessary measures to prevent and punish torture acts, ensures victims' rights, and establishes monitoring mechanisms to enforce compliance globally. The Convention is a cornerstone of the international legal framework against torture.",
+          "tokenUsage": {
+            "cached": 829,
+            "total": 829
+          },
+          "cached": true,
+          "finishReason": "stop",
+          "cost": 0.0012772,
+          "guardrails": {
+            "flagged": false
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Testing Factual Knowledge",
+          "prompt": "${prompts[0].raw}",
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "Response must contain specific, verifiable facts from credible sources"
+            }
+          ],
+          "vars": {},
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "vars": {},
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0.0011944,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {},
+          "tokensUsed": {
+            "total": 546,
+            "prompt": 452,
+            "completion": 94,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "assertion": {
+                "type": "llm-rubric",
+                "value": "Response must contain specific, verifiable facts from credible sources"
+              },
+              "pass": true,
+              "score": 1,
+              "reason": "The response provides specific, verifiable facts, such as the adoption year of the UNCAT (1984), its entry into force (1987), core principles and key provisions of the convention, the role of the Committee Against Torture, and the number of ratifying countries as of 2023. These facts are consistent with credible sources like the United Nations and official treaty documentation.",
+              "tokensUsed": {
+                "total": 546,
+                "prompt": 452,
+                "completion": 94,
+                "cached": 0,
+                "numRequests": 0,
+                "completionDetails": {
+                  "reasoning": 0,
+                  "acceptedPrediction": 0,
+                  "rejectedPrediction": 0
+                }
+              }
+            }
+          ]
+        },
+        "id": "b79a535f-e88b-4c2c-ad82-7da5653e05d4",
+        "latencyMs": 5950,
+        "namedScores": {},
+        "prompt": {
+          "raw": "What is the UN stance on torture? Please provide specific details about the UN Convention Against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment.",
+          "label": "File-based-prompts/factual/compliance.txt: What is the UN stance on torture? Please provide specific details about the UN Convention Against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment."
+        },
+        "promptId": "eaa3a2746d56e6a11d0483ffd3558e6ca822c23b29c49eb3d5919e1d620f89af",
+        "promptIdx": 0,
+        "provider": {
+          "id": "anthropic:messages:claude-3-5-haiku-20241022",
+          "label": ""
+        },
+        "response": {
+          "output": "The UN takes a strong stance against torture, considering it a serious violation of human rights. The UN Convention Against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment (UNCAT) was adopted in 1984 and came into force in 1987. Here are key details:\n\n1. Core Principles:\n- Absolutely prohibits torture under any circumstances\n- No exceptional situations (war, national emergency) justify torture\n- Applies to all territories and jurisdictions of signatory states\n\n2. Key Provisions:\n- Requires states to prevent torture within their jurisdictions\n- Mandates criminalization of torture in domestic legal systems\n- Prohibits returning individuals to countries where they may face torture\n- Establishes obligation to investigate and prosecute torture allegations\n\n3. Definition of Torture:\n- Any act causing severe physical/mental pain intentionally\n- Inflicted to obtain information, punishment, intimidation, or discrimination\n- Carried out by public officials or with their consent/acquiescence\n\n4. Enforcement Mechanisms:\n- Committee Against Torture monitors implementation\n- States must submit periodic reports on compliance\n- Individual complaint procedures available\n- Potential for international investigations\n\n5. As of 2023, 173 countries have ratified the convention, demonstrating broad international commitment to preventing torture.",
+          "tokenUsage": {
+            "total": 333,
+            "prompt": 43,
+            "completion": 290
+          },
+          "finishReason": "stop",
+          "cost": 0.0011944
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "Testing Factual Knowledge",
+          "prompt": "${prompts[0].raw}",
+          "assert": [
+            {
+              "type": "llm-rubric",
+              "value": "Response must contain specific, verifiable facts from credible sources"
+            }
+          ],
+          "vars": {},
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "vars": {},
+        "metadata": {
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      }
+    ],
+    "stats": {
+      "successes": 2,
+      "failures": 1,
+      "errors": 0,
+      "tokenUsage": {
+        "prompt": 43,
+        "completion": 290,
+        "cached": 1920,
+        "total": 2253,
+        "numRequests": 3,
+        "completionDetails": {
+          "reasoning": 0,
+          "acceptedPrediction": 0,
+          "rejectedPrediction": 0
+        },
+        "assertions": {
+          "total": 2954,
+          "prompt": 452,
+          "completion": 94,
+          "cached": 2408,
+          "numRequests": 0,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0
+          }
+        }
+      }
+    }
+  },
+  "config": {
+    "tags": {},
+    "description": "Testing AI Responses by factual knowledge",
+    "prompts": [
+      "file:///Users/calebbyrne/Documents/Engenious_University/how-to-test-ai/promptfoo/init/File-based-prompts/factual/compliance.txt"
+    ],
+    "providers": [
+      "file://Providers/all-providers.yaml"
+    ],
+    "tests": [
+      {
+        "description": "Testing Factual Knowledge",
+        "prompt": "${prompts[0].raw}",
+        "assert": [
+          {
+            "type": "llm-rubric",
+            "value": "Response must contain specific, verifiable facts from credible sources"
+          }
+        ]
+      }
+    ],
+    "scenarios": [],
+    "env": {},
+    "sharing": false,
+    "outputPath": [
+      "results.json"
+    ],
+    "extensions": [],
+    "metadata": {},
+    "evaluateOptions": {}
+  },
+  "shareableUrl": null,
+  "metadata": {
+    "promptfooVersion": "0.119.8",
+    "nodeVersion": "v24.11.1",
+    "platform": "darwin",
+    "arch": "arm64",
+    "exportedAt": "2025-11-24T19:13:46.724Z",
+    "evaluationCreatedAt": "2025-11-24T19:13:36.771Z"
+  }
+}

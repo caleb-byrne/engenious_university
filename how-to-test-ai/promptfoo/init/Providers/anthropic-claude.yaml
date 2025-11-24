@@ -1,0 +1,4 @@
+- id: anthropic:claude-3-5-haiku-20241022
+  config:
+    temperature: 1.0
+    max_tokens: 2000

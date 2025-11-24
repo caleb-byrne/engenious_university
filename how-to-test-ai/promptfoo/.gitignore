@@ -1,0 +1,10 @@
+# Challenge files
+challenge-*.md
+
+# Root README (only at the root level, not in subdirectories)
+/README.md
+
+# # API keys and secrets
+.env
+.env.local
+.env.*

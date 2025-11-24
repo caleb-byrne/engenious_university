@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  promptfoo-redteam:
+    build:
+      context: ./Red-Teaming
+      dockerfile: Dockerfile.redteam
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - CI=true
+    volumes:
+      # Mount output directory to see results
+      - ./Red-Teaming/output:/app/output
+    networks:
+      - promptfoo-network
+
+  # Optional: Simple web server to view results
+  results-viewer:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./Red-Teaming/output:/usr/share/nginx/html:ro
+    depends_on:
+      - promptfoo-redteam
+    networks:
+      - promptfoo-network
+    profiles:
+      - viewer
+
+  # Development service with shell access
+  promptfoo-dev:
+    build:
+      context: ./Red-Teaming
+      dockerfile: Dockerfile.redteam
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - ./Red-Teaming:/app
+    working_dir: /app
+    command: /bin/bash
+    tty: true
+    stdin_open: true
+    profiles:
+      - dev
+
+networks:
+  promptfoo-network:
+    driver: bridge
